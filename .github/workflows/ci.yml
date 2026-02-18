@@ -1,0 +1,13 @@
+name: CI
+on: pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest # PHP/Laravel proyecto 
+    steps:
+      - uses: actions/checkout@v3 #Repo
+      - uses: shivammathur/setup-php@v2 #PHP Install
+        with: {php-version: '8.2'} 
+      - run: composer install --no-interaction  #Sin detalles
+      - run: php artisan key:generate
+      - run: php artisan migrate --env=testing 
+      - run: php artisan test
