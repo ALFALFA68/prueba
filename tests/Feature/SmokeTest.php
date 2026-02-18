@@ -19,6 +19,7 @@ class SmokeTest extends TestCase
         // Verificamos que el estado sea 302 (Redirección)
         $response->assertStatus(202);
         
+        
         // Verificamos que redirija específicamente a la página de login
         $response->assertRedirect('/login');
     }
