@@ -15,6 +15,7 @@ class SmokeTest extends TestCase
         // Intentamos acceder a una ruta que requiere autenticación
         $response = $this->get('/dashboard');
 
+        
         // Verificamos que el estado sea 302 (Redirección)
         $response->assertStatus(302);
         
